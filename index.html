@@ -1,0 +1,121 @@
+<html>
+<head>
+
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+<div id="login-section" class="hidden">
+        <h1>Login</h1>
+        <form onsubmit="return login">
+            <input type="text" id="username" placeholder="Username" required><br>
+            <input type="password" id="password" placeholder="Password" required><br>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="#" onclick="showRegistration()">Register here</a></p>
+    </div>
+
+
+	<div id="registration-section" class="hidden">
+        <h1>Register</h1>
+
+        <form onsubmit="return register()">
+            <input type="text" id="regUsername" placeholder="Username" required><br>
+            <input type="password" id="regPassword" placeholder="Password" required><br>
+            <input type="date" id="regDate" placeholder="Date" required><br>
+            <input type="email" id="regEmail" placeholder="email" required><br>
+            <button type="submit">Register</button>
+        </form>
+
+        <p>Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
+    </div>
+	<div id="main-section" class="hidden">
+        <h1>Shopping Cart</h1>
+
+	
+	<div class="products">
+        <div class="product">
+            <h2>MANGO</h2>
+            <p>Price: $25</p>
+            <img src="mango.png" width="200px" height="200px">
+            <p>It is a very juicy, pulpy and luscious fruit. </p>
+            <button class="add-to-cart" onclick="addToCart('mango', 25)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <h2>APPLE</h2>
+            <p>Price: $15</p>
+            <p>An apple is a sweet fruit which is very healthy for our health.</p>
+            <img src="apple.png" width="200px" height="200px">
+            <p></p>
+            <button class="add-to-cart" onclick="addToCart('apple', 15)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <h2>ORANGE</h2>
+            <p>Price: $25</p>
+            <p>Oranges are citrus fruits with fragrant, leathery skin and juicy flesh.</p>
+            <img src="orange.png" width="200px" height="200px">
+            <p></p>
+            <button class="add-to-cart" onclick="addToCart('ORANGE', 25)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <h2>BANANA</h2>
+            <p>Price:$30</p>
+            <p>This fruit is a rich source of vitamins, minerals and packed with nutrients. </p>
+            <img src="banana.png" width="200px" height="200px">
+            <p></p>
+            <button class="add-to-cart" onclick="addToCart('banana',30)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <h2>GUAVA</h2>
+            <p>Price: $40</p>
+            <img src="guava.png" width="200px" height="200px" >
+            <p>Guava fruits are amazingly rich in antioxidants, vitamin C, potassium, and fiber.</p>
+            <button class="add-to-cart" onclick="addToCart('guava', 40)">Add to Cart</button>
+        </div>
+    	</div>
+        <div class="cart">
+            <h2>Shopping Cart</h2>
+            <ul id="cart-items"></ul>
+            <p>Total: $<span id="total">0</span></p>
+            <button onclick="checksout()">Checkout</button>
+        </div>
+    </div>
+
+<script>let cartItems = [];
+
+    function addToCart(product, price) {
+        cartItems.push({product, price});
+        updateCart();
+    }
+    
+    function updateCart() {
+        let cartList = document.getElementById("cart-items");
+        let totalElement = document.getElementById("total");
+        let total = 0;
+    
+        cartList.innerHTML = "";
+        cartItems.forEach(item => {
+            let listItem = document.createElement("li");
+            listItem.innerText = `${item.product} - $${item.price}`;
+            cartList.appendChild(listItem);
+            total += item.price;
+        });
+    
+        totalElement.innerText = total;
+    }
+    
+    
+    
+    
+    // Add product and cart logic similar to the previous example
+    
+    function checksout() {
+        alert('Thank you for your purchase!');
+    }
+    </script> 
+
+</body>
+</html>
