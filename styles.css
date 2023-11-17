@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+.product {
+    display: grid;
+  grid-template-rows: auto auto auto auto;
+
+  }
+.product{
+    display: flex;
+    height: 250px;
+    background-color: rgb(220, 144, 200);
+}
+.products, .cart {
+    float: left;
+    width: 45%;
+    margin: 0 2.5%;
+}
+
+.product, .cart-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #008CBA;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005f6b;
+}
